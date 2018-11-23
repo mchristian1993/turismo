@@ -9,8 +9,12 @@ import {ContentComponent} from './content/content.component';
 import {MenuComponent} from './menu/menu.component';
 import {BootstrapModalModule} from 'ng2-bootstrap-modal';
 import {CardSitiosComponent} from './card-sitios/card-sitios.component';
-import { LoginComponent } from './login/login.component';
-import { UbicacionComponent } from './ubicacion/ubicacion.component';
+import {LoginComponent} from './login/login.component';
+import {UbicacionComponent} from './ubicacion/ubicacion.component';
+import {environment} from '../environments/environment';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireDatabaseModule} from '@angular/fire/database';
+import {AngularFireAuthModule} from '@angular/fire/auth';
 
 
 const appRoutes: Routes = [
@@ -36,6 +40,8 @@ const appRoutes: Routes = [
     BrowserModule,
     BootstrapModalModule,
     RouterModule.forRoot(appRoutes),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule, AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent],
