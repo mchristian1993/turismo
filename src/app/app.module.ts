@@ -10,6 +10,7 @@ import {MenuComponent} from './menu/menu.component';
 import {BootstrapModalModule} from 'ng2-bootstrap-modal';
 import {CardSitiosComponent} from './card-sitios/card-sitios.component';
 import { LoginComponent } from './login/login.component';
+import { UbicacionComponent } from './ubicacion/ubicacion.component';
 
 
 const appRoutes: Routes = [
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
     ContentComponent,
     MenuComponent,
     CardSitiosComponent,
-    LoginComponent
+    LoginComponent,
+    UbicacionComponent
 
   ],
   imports: [
