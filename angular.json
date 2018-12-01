@@ -19,6 +19,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
+              "src/colombia.ico",
+              "src/i.ico",
               "src/favicon.ico",
               "src/assets"
             ],
@@ -80,6 +82,8 @@
               "../node_modules/bootstrap/dist/js/bootstrap.min.js"
             ],
             "assets": [
+              "src/colombia.ico",
+              "src/i.ico",
               "src/favicon.ico",
               "src/assets"
             ]
