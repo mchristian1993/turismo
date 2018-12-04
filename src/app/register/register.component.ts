@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 public registerUser() {
-    this.register_user.rol = 1;
+    this.register_user.rol = 2;
     this.authentication.register(this.register_user);
     console.log('d');
   }
