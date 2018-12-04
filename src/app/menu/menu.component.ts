@@ -1,5 +1,6 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-
+import {Component, OnInit} from '@angular/core';
+import {AuthenticationService} from '../services/authentication.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -8,10 +9,21 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 })
 export class MenuComponent implements OnInit {
   display = 'none';
-  chris = '';
-  tabs = 'none';
+  isAuthenticated: boolean = false;
+  emailUser: any = null;
 
-  constructor() {
+  constructor(private authentication: AuthenticationService, private router: Router) {
+    authentication.isAuthenticated().subscribe((result) => {
+      if (result && result.uid) {
+        this.isAuthenticated = true;
+        this.emailUser = this.authentication.getDataUserSession().currentUser.email;
+      } else {
+        this.isAuthenticated = false;
+        this.router.navigate(['/login']);
+      }
+    }, (error) => {
+      this.isAuthenticated = false;
+    });
 
   }
 
@@ -31,5 +43,7 @@ export class MenuComponent implements OnInit {
 
   }
 
-
+  public signOut() {
+    this.authentication.signOut();
+  }
 }
