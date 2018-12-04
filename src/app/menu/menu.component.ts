@@ -45,5 +45,6 @@ export class MenuComponent implements OnInit {
 
   public signOut() {
     this.authentication.signOut();
+
   }
 }

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark" >
+<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -16,21 +16,27 @@
       <li class="nav-item">
         <a class="nav-link " *ngIf="isAuthenticated">Mis de sitios</a>
       </li>
-      <li class="nav-item">
-                <span class="navbar-text" *ngIf="isAuthenticated">
-                    <span class="badge badge-success" >Usuario: {{emailUser}}</span>
-                </span>
-      </li>&nbsp;
-      <li class="nav-item">
-        <a class="nav-link " *ngIf="isAuthenticated" (click)="signOut()" >cerrrar sesion</a>
-      </li>
+
 
     </ul>
     <div class="boton-login" *ngIf="!isAuthenticated">
       <button type="button" class="btn btn-primary " data-toggle="modal" (click)=openModal()>
         Login
       </button>
+    </div>
 
+
+    <div>
+
+      <span class="navbar-text" *ngIf="isAuthenticated">
+                    <span class="badge badge-success">Usuario: {{emailUser}}</span>
+                </span>
+    </div>
+    <div>
+
+      <a data-toggle="modal" data-target="#e" class="nav-link" href="#" *ngIf="isAuthenticated" (click)="signOut()">Salir
+        <span
+          class="sr-only">(current)</span></a>
     </div>
   </div>
 </nav>
@@ -47,12 +53,13 @@
       <div class="modal-body">
         <mat-tab-group>
           <mat-tab label="Login">
-          <app-login></app-login>
+            <app-login></app-login>
           </mat-tab>
           <mat-tab label="Register">
-           <app-register>
+            <app-register>
 
-           </app-register></mat-tab>
+            </app-register>
+          </mat-tab>
         </mat-tab-group>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal" (click)=onCloseHandled()>Close</button>
