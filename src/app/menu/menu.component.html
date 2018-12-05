@@ -5,9 +5,8 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a data-toggle="modal" data-target="#e" class="nav-link" href="#">Home <span
-          class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a class="nav-link"  routerLink="content">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" *ngIf="isAuthenticated" routerLink="formimg">Gestión de sitios</a>
@@ -68,3 +67,4 @@
     </div>
   </div>
   <!-- fin Modal  login -->
+

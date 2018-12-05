@@ -16,7 +16,7 @@ export class AuthenticationService {
   public signIn = (dataLogin) => {
     this.angularFireAuth.auth.signInWithEmailAndPassword(dataLogin.email, dataLogin.password)
       .then((response) => {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/content']);
 
       })
       .catch((error) => {
@@ -28,7 +28,7 @@ export class AuthenticationService {
   // Metodo para cerrar sesion
   public signOut() {
     this.angularFireAuth.auth.signOut();
-    this.router.navigate(['/']);
+    this.router.navigate(['/home']);
   }
 
   // Metodo para registrar usuario
@@ -38,7 +38,7 @@ export class AuthenticationService {
         dataRegister.id = response.user.uid;
         this.db.database.ref('datos/usuarios/' + dataRegister.id).set(dataRegister);
         alert('usuarios registrado');
-        this.router.navigate(['/home']);
+        this.router.navigate(['/content']);
       })
       .catch((error) => {
         console.log(error);
