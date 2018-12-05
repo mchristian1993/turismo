@@ -23,12 +23,12 @@ export class AuthenticationService {
         // console.log(error);
         alert('El usuario no esta registrado.');
       });
-  };
+  }
 
   // Metodo para cerrar sesion
   public signOut() {
     this.angularFireAuth.auth.signOut();
-    this.router.navigate(['/home']);
+    this.router.navigate(['/']);
   }
 
   // Metodo para registrar usuario
@@ -43,7 +43,7 @@ export class AuthenticationService {
       .catch((error) => {
         console.log(error);
       });
-  };
+  }
 
 
   // Metodo para obtener los datos del usuario

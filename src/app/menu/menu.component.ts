@@ -19,7 +19,7 @@ export class MenuComponent implements OnInit {
         this.emailUser = this.authentication.getDataUserSession().currentUser.email;
       } else {
         this.isAuthenticated = false;
-        this.router.navigate(['/login']);
+        this.router.navigate(['/']);
       }
     }, (error) => {
       this.isAuthenticated = false;
