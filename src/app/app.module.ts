@@ -26,8 +26,9 @@ import { FormImgComponent } from './form-img/form-img.component';
 
 const appRoutes: Routes = [
 
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent }, 
   { path: 'formimg', component: FormImgComponent },
+  
 
 ];
 
