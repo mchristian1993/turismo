@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { Route } from '@angular/compiler/src/core';
+
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
 
@@ -33,7 +33,7 @@ export class FirebaseService {
           dataForm.image = url;
           this.db.database.ref('datos/publicaciones/' + dataForm.id).set(dataForm);
           this.router.navigate(['/listpost']);
-        })
+        });
       })
     ).subscribe();
   }

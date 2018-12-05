@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
 
 @Injectable()
 export class AuthenticationService {
-  public dataUser: any = {};
+  dataUser: any = {};
 
   constructor(private db: AngularFireDatabase, private angularFireAuth: AngularFireAuth, private storage: AngularFireStorage, private router: Router) {
   }
@@ -23,7 +23,7 @@ export class AuthenticationService {
         // console.log(error);
         alert('El usuario no esta registrado.');
       });
-  }
+  };
 
   // Metodo para cerrar sesion
   public signOut() {
@@ -43,17 +43,9 @@ export class AuthenticationService {
       .catch((error) => {
         console.log(error);
       });
-  }
+  };
 
-
-  // Metodo para obtener los datos del usuario
-  public getDataUserSession() {
-    return this.angularFireAuth.auth;
-  }
-
-  // Metodo para obtener todos los datos de un usuario
-
-  public getDataUserGeneral(id) {
+ public getDataUserGeneral(id) {
     return this.db.object('datos/usuarios/' + id);
   }
 
@@ -61,12 +53,16 @@ export class AuthenticationService {
   public isAuthenticated() {
     return this.angularFireAuth.authState;
   }
-
+ public getDataUserSession() {
+      return this.angularFireAuth.auth;
+  }
   public setDataUser(data) {
     this.dataUser = data;
   }
 
   public getDataUser() {
+
     return this.dataUser;
   }
+
 }
