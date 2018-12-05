@@ -52,6 +52,7 @@ export class AuthenticationService {
   }
 
   // Metodo para obtener todos los datos de un usuario
+
   public getDataUserGeneral(id) {
     return this.db.object('datos/usuarios/' + id);
   }
