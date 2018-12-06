@@ -25,6 +25,7 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
 import {FormImgComponent} from './form-img/form-img.component';
 import { MissitesComponent } from './missites/missites.component';
 import { DetailImgComponent } from './detail-img/detail-img.component';
+import { HomeContentComponent } from './home-content/home-content.component';
 
 const appRoutes: Routes = [
 
@@ -47,7 +48,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     FormImgComponent,
     MissitesComponent,
-    DetailImgComponent
+    DetailImgComponent,
+    HomeContentComponent
 
   ],
   imports: [
