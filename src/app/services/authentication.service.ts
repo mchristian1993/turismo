@@ -4,11 +4,10 @@ import {AngularFireAuth} from '@angular/fire/auth';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {Router} from '@angular/router';
 
-
 @Injectable()
 export class AuthenticationService {
-  dataUser: any = {};
 
+  public dataUser: any = {};
   constructor(private db: AngularFireDatabase, private angularFireAuth: AngularFireAuth, private storage: AngularFireStorage, private router: Router) {
   }
 
@@ -23,14 +22,14 @@ export class AuthenticationService {
         // console.log(error);
         alert('El usuario no esta registrado.');
       });
-  };
+  }
 
   // Metodo para cerrar sesion
   public signOut() {
     this.angularFireAuth.auth.signOut();
+
     this.router.navigate(['/']);
   }
-
   // Metodo para registrar usuario
   public register = (dataRegister) => {
     this.angularFireAuth.auth.createUserWithEmailAndPassword(dataRegister.email, dataRegister.password)
@@ -43,26 +42,21 @@ export class AuthenticationService {
       .catch((error) => {
         console.log(error);
       });
-  };
-
- public getDataUserGeneral(id) {
+  }
+  public getDataUserGeneral(id) {
     return this.db.object('datos/usuarios/' + id);
   }
-
   // Metodo para validar si el usuario esta autenticado
   public isAuthenticated() {
     return this.angularFireAuth.authState;
   }
- public getDataUserSession() {
-      return this.angularFireAuth.auth;
+  public getDataUserSession() {
+    return this.angularFireAuth.auth;
   }
   public setDataUser(data) {
     this.dataUser = data;
   }
-
   public getDataUser() {
-
     return this.dataUser;
   }
-
 }
