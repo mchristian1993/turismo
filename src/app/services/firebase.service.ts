@@ -14,6 +14,12 @@ export class FirebaseService {
     return this.db.list('datos/publicaciones/', ref => ref.orderByChild('id_usuario').equalTo(id)).valueChanges();
   }
 
+   // Metodo para obtener todas las publicaciones de todos los usuarios
+    public getPostsAll() {
+        return this.db.list('datos/publicaciones/').valueChanges();
+    }
+
+    // Metodo para obtener todas las publicaciones de un usuario
   // Metodo para obtener una sola publicación
   public getPost(id) {
     return this.db.object('datos/publicaciones/' + id);
