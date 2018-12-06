@@ -14,7 +14,6 @@ export class DetailImgComponent implements OnInit {
   dataPost = {};
 
   constructor(private firebase: FirebaseService, private authentication: AuthenticationService, private route: ActivatedRoute) {
-    console.log(this.dataUser);
   }
 
 
@@ -24,6 +23,7 @@ export class DetailImgComponent implements OnInit {
     this.idPost = this.route.snapshot.params['id'];
     this.firebase.getPost(this.idPost).valueChanges().subscribe(post => {
       this.dataPost = post;
+      this.dataUser = this.authentication.getDataUserSession().currentUser.email;
     });
   }
 

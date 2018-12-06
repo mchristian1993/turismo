@@ -24,7 +24,7 @@ export class FormImgComponent implements OnInit {
 
   selectImage(event) {
     this.eventImage = event;
-    this.eventImage = null;
+    
   }
 
   createPost() {
@@ -34,6 +34,7 @@ export class FormImgComponent implements OnInit {
     console.log(this.dataUser);
     this.firebase.createPost(this.dataForm, this.eventImage);
     this.dataForm = {};
+    this.eventImage = null;
     
   }
 
