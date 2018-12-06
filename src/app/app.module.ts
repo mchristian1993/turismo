@@ -35,7 +35,7 @@ const appRoutes: Routes = [
 
   {path: 'formimg', component: FormImgComponent},
   {path: 'content', component: ContentComponent},
-  {path: 'detailimg', component: DetailImgComponent},
+  {path: 'detailimg/:id', component: DetailImgComponent},
 
 ];
 
