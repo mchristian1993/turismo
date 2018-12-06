@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
 import { ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Component({
   selector: 'app-detail-img',
@@ -12,8 +13,9 @@ export class DetailImgComponent implements OnInit {
   dataUser = null;
   idPost: any = null;
   dataPost = {};
+  dataComent: any = {};
 
-  constructor(private firebase: FirebaseService, private authentication: AuthenticationService, private route: ActivatedRoute) {
+  constructor(private db: AngularFireDatabase, private firebase: FirebaseService, private authentication: AuthenticationService, private route: ActivatedRoute) {
   }
 
 
@@ -25,6 +27,19 @@ export class DetailImgComponent implements OnInit {
       this.dataPost = post;
       this.dataUser = this.authentication.getDataUserSession().currentUser.email;
     });
+  }
+
+  createComment() {
+
+    this.dataComent.id_comentario = Date.now();
+    this.dataComent.id_post = this.idPost;
+    this.dataComent.id_user_com= this.authentication.getDataUserSession().currentUser.uid;
+    console.log(this.dataPost);
+    //this.firebase.createPost(this.dataComent, );
+    this.db.database.ref('datos/comentarios/').set(this.dataComent);
+    this.dataComent = {};
+
+
   }
 
 }

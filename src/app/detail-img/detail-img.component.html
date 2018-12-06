@@ -27,10 +27,10 @@
 
   <div *ngIf="dataUser.id != dataPost.id_usuario">
     <div class="form-group">
-      <textarea class="form-control" rows="5" placeholder="Ingresar comentario"></textarea>
+      <textarea class="form-control" rows="5" placeholder="Ingresar comentario" [(ngModel)]="dataComent.comentario"></textarea>
     </div>
     <hr>
-    <button type="button" class="btn btn-primary" (click)="createPost()"><i class="fa fa-paper-plane"
+    <button type="button" class="btn btn-primary" (click)="createComment()"><i class="fa fa-paper-plane"
                                                                             aria-hidden="true"></i> Enviar comentario
     </button>
   </div>
