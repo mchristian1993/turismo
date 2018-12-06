@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {FirebaseService} from '../services/firebase.service';
-import {AuthenticationService} from '../services/authentication.service';
+import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from '../services/firebase.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class FormImgComponent implements OnInit {
   eventImage: Event = null;
 
   constructor(private firebase: FirebaseService, private authentication: AuthenticationService) {
-  this.dataUser = this.authentication.getDataUserSession().currentUser.uid;
+    this.dataUser = this.authentication.getDataUserSession().currentUser.uid;
   }
 
   ngOnInit(): void {
@@ -24,14 +24,17 @@ export class FormImgComponent implements OnInit {
 
   selectImage(event) {
     this.eventImage = event;
+    this.eventImage = null;
   }
 
   createPost() {
 
     this.dataForm.id = Date.now();
     this.dataForm.id_usuario = this.dataUser;
-    console.log( this.dataUser);
+    console.log(this.dataUser);
     this.firebase.createPost(this.dataForm, this.eventImage);
+    this.dataForm = {};
+    
   }
 
 }

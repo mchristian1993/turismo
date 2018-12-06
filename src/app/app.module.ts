@@ -24,6 +24,7 @@ import {FirebaseService} from './services/firebase.service';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {FormImgComponent} from './form-img/form-img.component';
 import { MissitesComponent } from './missites/missites.component';
+import { DetailImgComponent } from './detail-img/detail-img.component';
 
 const appRoutes: Routes = [
 
@@ -45,7 +46,8 @@ const appRoutes: Routes = [
     UbicacionComponent,
     RegisterComponent,
     FormImgComponent,
-    MissitesComponent
+    MissitesComponent,
+    DetailImgComponent
 
   ],
   imports: [

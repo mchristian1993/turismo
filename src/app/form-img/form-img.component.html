@@ -12,10 +12,7 @@
             <label>Descripción</label>
             <textarea class="form-control" rows="5" placeholder="Ingresar descripción" [(ngModel)]="dataForm.descripcion"></textarea>
         </div>
-        <div class="form-group">
-            <label>Enlace</label>
-            <input type="text" class="form-control" placeholder="Ingresar enlace" [(ngModel)]="dataForm.link">
-        </div>
+        
         <div class="form-group">
             <label>Seleccionar imagen</label>
             <input class="form-control" type="file" (change)="selectImage($event)" accept="image/*">
