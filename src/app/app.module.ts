@@ -29,6 +29,7 @@ import { DetailImgComponent } from './detail-img/detail-img.component';
 import { HomeContentComponent } from './home-content/home-content.component';
 
 import { CommentsComponent } from './comments/comments.component';
+import { ListImgUserComponent } from './list-img-user/list-img-user.component';
 
 
 const appRoutes: Routes = [
@@ -36,6 +37,8 @@ const appRoutes: Routes = [
   {path: 'formimg', component: FormImgComponent},
   {path: 'content', component: ContentComponent},
   {path: 'detailimg/:id', component: DetailImgComponent},
+  {path: 'listuser', component: ListImgUserComponent},
+
 
 ];
 
@@ -56,6 +59,7 @@ const appRoutes: Routes = [
     DetailImgComponent,
     HomeContentComponent,
     CommentsComponent,
+    ListImgUserComponent,
 
 
   ],
