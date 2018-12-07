@@ -1,7 +1,7 @@
 <br>
-<div class="container">
+<div class="container" >
 
-  <h1><i class="fa fa-arrow-right" aria-hidden="true"></i> {{dataPost.titulo}}</h1>
+  <h1><i class="fa fa-arrow-right" aria-hidden="true"></i> {{titulo}}</h1>
   <hr>
   <br>
 
@@ -12,12 +12,12 @@
   </blockquote>
 
   <div class="card mb-3">
-    <img class="card-img-top" src={{dataPost.image}} alt="Card image cap">
+    <img class="card-img-top" src={{image}} alt="Card image cap">
     <div class="card-body">
 
-      <p class="card-text">{{dataPost.descripcion}}</p>
+      <p class="card-text">{{descripcion}}</p>
       <p class="card-text">
-        <small class="text-muted">{{dataPost.id | date:'medium'}}</small>
+        <small class="text-muted">{{id | date:'medium'}}</small>
       </p>
 
     </div>

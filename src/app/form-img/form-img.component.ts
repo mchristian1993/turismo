@@ -31,7 +31,7 @@ export class FormImgComponent implements OnInit {
 
     this.dataForm.id = Date.now();
     this.dataForm.id_usuario = this.dataUser;
-    console.log(this.dataUser);
+
     this.firebase.createPost(this.dataForm, this.eventImage);
     this.dataForm = {};
 

@@ -21,7 +21,7 @@ export class ListImgUserComponent implements OnInit {
   ngOnInit() {
     this.comments = this.firebase.getComments();
     this.postsAll = this.firebase.getPostsAll();
-    console.log(this.postsAll.id_usuario);
+
   }
 
   deleteImage(id) {

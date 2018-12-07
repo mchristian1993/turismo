@@ -28,8 +28,7 @@ export class FirebaseService {
   public getPost(id) {
     return this.db.object('datos/publicaciones/' + id);
   }
-  //obtener los comentarios del post
-// obtener los comentarios del post
+
   public getComments() {
     return this.db.list('datos/comentarios/').valueChanges();
   }
@@ -63,13 +62,13 @@ export class FirebaseService {
           fileRef.getDownloadURL().subscribe(url => {
             dataForm.image = url;
             this.db.database.ref('datos/publicaciones/' + dataForm.id).set(dataForm);
-            //this.router.navigate(['/listpost']);
+
           })
         })
       ).subscribe();
     } else {
       this.db.database.ref('datos/publicaciones/' + dataForm.id).set(dataForm);
-      //this.router.navigate(['/listpost']);
+
     }
   }
 

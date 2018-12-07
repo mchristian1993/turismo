@@ -20,6 +20,5 @@ export class RegisterComponent implements OnInit {
 public registerUser() {
     this.register_user.rol = 2;
     this.authentication.register(this.register_user);
-    console.log('d');
   }
 }
