@@ -1,9 +1,8 @@
-
-import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from '../services/firebase.service';
-import { ActivatedRoute } from '@angular/router';
-import { AuthenticationService } from '../services/authentication.service';
-import { AngularFireDatabase } from '@angular/fire/database';
+import {Component, OnInit} from '@angular/core';
+import {FirebaseService} from '../services/firebase.service';
+import {ActivatedRoute} from '@angular/router';
+import {AuthenticationService} from '../services/authentication.service';
+import {AngularFireDatabase} from '@angular/fire/database';
 
 
 @Component({
@@ -40,15 +39,15 @@ export class DetailImgComponent implements OnInit {
         this.id_dataUser = this.dataPost['id_usuario'];
 
       }
-       this.authentication.getDataUserGeneral(this.id_dataUser).valueChanges().subscribe(user => {
+      this.authentication.getDataUserGeneral(this.id_dataUser).valueChanges().subscribe(user => {
 
-      this.dataUser = user;
-      console.log(this.dataUser);
-      for (this.item1 in this.dataUser) {
-        this.useremail = this.dataUser['email'];
-        console.log('e' + this.useremail);
-      }
-    });
+        this.dataUser = user;
+        console.log(this.dataUser);
+        for (this.item1 in this.dataUser) {
+          this.useremail = this.dataUser['email'];
+          console.log('e' + this.useremail);
+        }
+      });
     });
     this.dataUser = this.authentication.getDataUserSession().currentUser.email;
 
@@ -56,13 +55,14 @@ export class DetailImgComponent implements OnInit {
     this.comments = this.firebase.getComments();
     console.log(this.comments);
   }
+
   public createComment() {
     this.dataComent.id_comentario = Date.now();
     this.dataComent.id_post = this.idPost;
-    this.dataComent.id_user_com= this.authentication.getDataUserSession().currentUser.uid;
+    this.dataComent.id_user_com = this.authentication.getDataUserSession().currentUser.uid;
     console.log(this.dataPost);
     // this.firebase.createPost(this.dataComent, );
-    this.db.database.ref('datos/comentarios/' + this.dataComent.id_comentario ).set(this.dataComent);
+    this.db.database.ref('datos/comentarios/' + this.dataComent.id_comentario).set(this.dataComent);
     this.dataComent = {};
 
   }
@@ -71,7 +71,4 @@ export class DetailImgComponent implements OnInit {
     return this.useremail;
   }
 
-  public getuserid() {
-    return this.id_dataUser;
-  }
 }

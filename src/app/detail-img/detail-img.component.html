@@ -34,8 +34,7 @@
     <app-comments></app-comments>
   </div>
 
-  <div *ngIf="dataUser.id != dataPost.id_usuario">
-
+    <div *ngIf="dataUser.id != dataPost.id_usuario">
     <div class="form-group">
       <textarea class="form-control" rows="5" placeholder="Ingresar comentario" [(ngModel)]="dataComent.comentario"></textarea>
     </div>
@@ -44,6 +43,7 @@
       Enviar comentario
     </button>
   </div>
+
 
 
 </div>
