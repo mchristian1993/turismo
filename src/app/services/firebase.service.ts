@@ -24,6 +24,10 @@ export class FirebaseService {
   public getPost(id) {
     return this.db.object('datos/publicaciones/' + id);
   }
+//obtener los comentarios del post
+  public getComments() {
+    return this.db.list('datos/comentarios/').valueChanges();
+  }
 
   // Metodo crear una publicación
   public createPost(dataForm, eventImage) {

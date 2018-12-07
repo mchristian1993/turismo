@@ -1,1 +1,12 @@
+<ng-container *ngFor="let c of comments | async">
+    <div >
+        <!-- Mostrar todos los comentarios sobre la publicacion -->
+        <div *ngIf="dataPost.id==c.id_post">
+            <h5>{{c.comentario}}</h5>
+            <h6>comentado por</h6>
+            <hr>
+            <br>
+        </div>
+    </div>
+</ng-container>
 
