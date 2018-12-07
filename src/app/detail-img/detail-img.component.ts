@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {FirebaseService} from '../services/firebase.service';
-import {ActivatedRoute} from '@angular/router';
-import {AuthenticationService} from '../services/authentication.service';
-import {forEach} from '@angular/router/src/utils/collection';
+
+import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from '../services/firebase.service';
+import { ActivatedRoute } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
+import { AngularFireDatabase } from '@angular/fire/database';
+
 
 @Component({
   selector: 'app-detail-img',
@@ -18,8 +20,10 @@ export class DetailImgComponent implements OnInit {
   item = null;
   item1 = null;
   useremail = null;
+  dataComent: any = {};
+  comments = null;
 
-  constructor(private firebase: FirebaseService, private authentication: AuthenticationService, private route: ActivatedRoute) {
+  constructor(private db: AngularFireDatabase, private firebase: FirebaseService, private authentication: AuthenticationService, private route: ActivatedRoute) {
 
   }
 
@@ -28,8 +32,10 @@ export class DetailImgComponent implements OnInit {
 
 
     this.idPost = this.route.snapshot.params['id'];
+    console.log(this.idPost);
     this.firebase.getPost(this.idPost).valueChanges().subscribe(post => {
       this.dataPost = post;
+
       for (this.item in this.dataPost) {
         this.id_dataUser = this.dataPost['id_usuario'];
 
@@ -44,7 +50,20 @@ export class DetailImgComponent implements OnInit {
       }
     });
     });
+    this.dataUser = this.authentication.getDataUserSession().currentUser.email;
 
+
+    this.comments = this.firebase.getComments();
+    console.log(this.comments);
+  }
+  public createComment() {
+    this.dataComent.id_comentario = Date.now();
+    this.dataComent.id_post = this.idPost;
+    this.dataComent.id_user_com= this.authentication.getDataUserSession().currentUser.uid;
+    console.log(this.dataPost);
+    // this.firebase.createPost(this.dataComent, );
+    this.db.database.ref('datos/comentarios/' + this.dataComent.id_comentario ).set(this.dataComent);
+    this.dataComent = {};
 
   }
 
