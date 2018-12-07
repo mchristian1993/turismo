@@ -30,7 +30,7 @@
     <app-comments></app-comments>
   </div>
 
-  <div *ngIf="dataUser != dataPost.id_usuario">
+  <div *ngIf="dataUser != id_dataUser">
     <div class="form-group" >
       <textarea class="form-control" rows="5" placeholder="Ingresar comentario" [(ngModel)]="dataComent.comentario" autofocus></textarea>
 

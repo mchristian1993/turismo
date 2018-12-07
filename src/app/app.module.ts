@@ -30,7 +30,7 @@ import {HomeContentComponent} from './home-content/home-content.component';
 
 import {CommentsComponent} from './comments/comments.component';
 import {ListImgUserComponent} from './list-img-user/list-img-user.component';
-import {UpdateImgComponent} from './update-img/update-img.component';
+
 import {AllsitesComponent} from './allsites/allsites.component';
 
 
@@ -41,7 +41,7 @@ const appRoutes: Routes = [
   {path: 'detailimg/:id', component: DetailImgComponent},
   {path: 'listuser', component: ListImgUserComponent},
   {path: 'allsites', component: AllsitesComponent},
-  {path: 'update/:id', component: UpdateImgComponent},
+
 
 
 ];
@@ -64,7 +64,7 @@ const appRoutes: Routes = [
     HomeContentComponent,
     CommentsComponent,
     ListImgUserComponent,
-    UpdateImgComponent,
+
     AllsitesComponent,
 
 

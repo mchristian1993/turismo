@@ -26,6 +26,7 @@ export class DetailImgComponent implements OnInit {
   descripcion = null;
   id = null;
 
+
   constructor(private db: AngularFireDatabase, private firebase: FirebaseService, private authentication: AuthenticationService, private route: ActivatedRoute) {
 
   }
@@ -44,7 +45,7 @@ export class DetailImgComponent implements OnInit {
         this.titulo = this.dataPost['titulo'];
         this.image = this.dataPost['image'];
         this.descripcion = this.dataPost['descripcion'];
-        this.id = this.dataPost['id'] ;
+        this.id = this.dataPost['id'];
       }
       this.authentication.getDataUserGeneral(this.id_dataUser).valueChanges().subscribe(user => {
 
