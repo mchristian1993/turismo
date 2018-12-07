@@ -21,30 +21,20 @@ export class DetailImgComponent implements OnInit {
   useremail = null;
   dataComent: any = {};
   comments = null;
-  item = null;
-  item1 = null;
-  useremail = null;
-  id_dataUser = null;
   constructor(private db: AngularFireDatabase, private firebase: FirebaseService, private authentication: AuthenticationService, private route: ActivatedRoute) {
 
   }
 
 
   ngOnInit() {
-<<<<<<< HEAD
    
-=======
 
 
->>>>>>> 6e8269844f010629bf12aca3451a3a7711c4da84
     this.idPost = this.route.snapshot.params['id'];
     console.log(this.idPost);
     this.firebase.getPost(this.idPost).valueChanges().subscribe(post => {
       this.dataPost = post;
-<<<<<<< HEAD
-=======
 
->>>>>>> 6e8269844f010629bf12aca3451a3a7711c4da84
       for (this.item in this.dataPost) {
         this.id_dataUser = this.dataPost['id_usuario'];
 
@@ -80,8 +70,6 @@ export class DetailImgComponent implements OnInit {
   public getuser() {
     return this.useremail;
   }
-  public getuser() {
-    return this.useremail;
-  }
+ 
 
 }
