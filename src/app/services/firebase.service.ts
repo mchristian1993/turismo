@@ -19,12 +19,20 @@ export class FirebaseService {
     return this.db.list('datos/publicaciones/').valueChanges();
   }
 
+
+
+
   // Metodo para obtener todas las publicaciones de un usuario
+
   // Metodo para obtener una sola publicación
   public getPost(id) {
     return this.db.object('datos/publicaciones/' + id);
   }
+<<<<<<< HEAD
   //obtener los comentarios del post
+=======
+// obtener los comentarios del post
+>>>>>>> 6e8269844f010629bf12aca3451a3a7711c4da84
   public getComments() {
     return this.db.list('datos/comentarios/').valueChanges();
   }

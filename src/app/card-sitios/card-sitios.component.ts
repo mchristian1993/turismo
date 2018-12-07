@@ -10,8 +10,18 @@ import {FirebaseService} from '../services/firebase.service';
 })
 export class CardSitiosComponent implements OnInit {
   postsAll = null;
-
+isAuthenticated: boolean = false;
   constructor(private firebase: FirebaseService, private authentication: AuthenticationService, private router: Router) {
+  authentication.isAuthenticated().subscribe((result) => {
+      if (result && result.uid) {
+        this.isAuthenticated = true;
+
+      } else {
+        this.isAuthenticated = false;
+      }
+    }, (error) => {
+      this.isAuthenticated = false;
+    });
   }
 
   ngOnInit(): void {
