@@ -6,7 +6,7 @@
   <br>
 
   <blockquote class="blockquote text-right">
-    <footer class="blockquote-footer">Publicado por: <cite title="Source Title">{{dataUser.email}}</cite></footer>
+    <footer class="blockquote-footer">Publicado por: <cite title="Source Title"> {{getuser()}}</cite></footer>
   </blockquote>
 
   <div class="card mb-3">
@@ -24,8 +24,8 @@
   <hr>
 
   <h1><i class="fa fa-comments" aria-hidden="true"></i> Comentarios</h1>
-
-  <div *ngIf="dataUser.id != dataPost.id_usuario">
+/* *ngIf="dataUser.id != dataPost.id_usuario"
+  <div >
     <div class="form-group">
       <textarea class="form-control" rows="5" placeholder="Ingresar comentario"></textarea>
     </div>

@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthenticationService} from '../services/authentication.service';
+import {Router} from '@angular/router';
+import {FirebaseService} from '../services/firebase.service';
+
 @Component({
   selector: 'app-home-content',
   templateUrl: './home-content.component.html',

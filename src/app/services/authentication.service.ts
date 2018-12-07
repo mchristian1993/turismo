@@ -46,6 +46,14 @@ export class AuthenticationService {
   public getDataUserGeneral(id) {
     return this.db.object('datos/usuarios/' + id);
   }
+
+
+  public getDatapost() {
+
+   return this.db.list('datos/usuarios/').valueChanges();
+    }
+
+
   // Metodo para validar si el usuario esta autenticado
   public isAuthenticated() {
     return this.angularFireAuth.authState;
