@@ -6,7 +6,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link"  routerLink="content">Home</a>
+        <a class="nav-link" routerLink="content">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" *ngIf="isAuthenticated" routerLink="formimg">Gestión de sitios</a>
@@ -15,7 +15,12 @@
       <li class="nav-item">
         <a class="nav-link " *ngIf="isAuthenticated" routerLink="listuser">Mis sitios</a>
       </li>
+      <ng-container *ngIf="isAuthenticated">
+      <li class="nav-item">
 
+        <a class="nav-link "  *ngIf="rol == 1" routerLink="allsites">Todos los sitios</a>
+      </li>
+      </ng-container>
 
     </ul>
     <div class="boton-login" *ngIf="!isAuthenticated">
@@ -33,8 +38,8 @@
     </div>
     <div>
 
-      <a data-toggle="modal"  class="nav-link" routerLink="/" *ngIf="isAuthenticated" (click)="signOut()">Salir
-        </a>
+      <a data-toggle="modal" class="nav-link" routerLink="/" *ngIf="isAuthenticated" (click)="signOut()">Salir
+      </a>
     </div>
   </div>
 </nav>

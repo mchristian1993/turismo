@@ -11,12 +11,25 @@ export class MenuComponent implements OnInit {
   display = 'none';
   isAuthenticated: boolean = false;
   emailUser: any = null;
+  iduser: any = null;
+  dataUser = null;
+  item = null;
+  rol = null;
 
   constructor(private authentication: AuthenticationService, private router: Router) {
     authentication.isAuthenticated().subscribe((result) => {
       if (result && result.uid) {
         this.isAuthenticated = true;
         this.emailUser = this.authentication.getDataUserSession().currentUser.email;
+        this.iduser = this.authentication.getDataUserSession().currentUser.uid;
+        this.authentication.getDataUserGeneral(this.iduser).valueChanges().subscribe(user => {
+            this.dataUser = user;
+            for (this.item in this.dataUser) {
+              this.rol = this.dataUser['rol'];
+
+            }
+          }
+        );
       } else {
         this.isAuthenticated = false;
         this.router.navigate(['/']);
@@ -25,9 +38,11 @@ export class MenuComponent implements OnInit {
       this.isAuthenticated = false;
     });
 
+
   }
 
   ngOnInit() {
+
   }
 
   onCloseHandled() {
