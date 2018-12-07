@@ -1,0 +1,23 @@
+
+<div class="container">
+
+    <h1>Actualizar</h1><br><br>
+
+    <div>
+        <div class="form-group">
+            <label>Ingrese nuevo Titulo</label>
+            <input type="text" class="form-control" placeholder="Ingresar titulo" [(ngModel)]="dataForm.titulo">
+        </div>
+        <div class="form-group">
+            <label>Descripción</label>
+            <textarea class="form-control" rows="5" placeholder="Ingresar descripción" [(ngModel)]="dataForm.descripcion"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label>Seleccionar imagen</label>
+            <input class="form-control" type="file" (change)="selectImage($event)" accept="image/*">
+        </div>
+        <hr>
+        <button type="button" class="btn btn-primary" (click)="updatePost()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Actualizar</button>
+    </div>
+</div>

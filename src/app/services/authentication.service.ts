@@ -59,4 +59,8 @@ export class AuthenticationService {
   public getDataUser() {
     return this.dataUser;
   }
+  public getDataUserGeneralEmail(id) {
+    return this.db.object('datos/usuarios/' + id);
+  }
+
 }

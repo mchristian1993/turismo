@@ -24,7 +24,7 @@ export class FirebaseService {
   public getPost(id) {
     return this.db.object('datos/publicaciones/' + id);
   }
-//obtener los comentarios del post
+  //obtener los comentarios del post
   public getComments() {
     return this.db.list('datos/comentarios/').valueChanges();
   }
@@ -45,6 +45,27 @@ export class FirebaseService {
         });
       })
     ).subscribe();
+  }
+  // Metodo actualizar una publicación
+  public updatePost(dataForm, eventImage, statusImage) {
+    if (statusImage) {
+      const file = eventImage.target.files[0];
+      const filePath = 'images/' + dataForm.id;
+      const fileRef = this.storage.ref(filePath);
+      const task = this.storage.upload(filePath, file);
+      task.snapshotChanges().pipe(
+        finalize(() => {
+          fileRef.getDownloadURL().subscribe(url => {
+            dataForm.image = url;
+            this.db.database.ref('datos/publicaciones/' + dataForm.id).set(dataForm);
+            //this.router.navigate(['/listpost']);
+          })
+        })
+      ).subscribe();
+    } else {
+      this.db.database.ref('datos/publicaciones/' + dataForm.id).set(dataForm);
+      //this.router.navigate(['/listpost']);
+    }
   }
 
 

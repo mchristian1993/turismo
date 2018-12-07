@@ -30,6 +30,7 @@ import { HomeContentComponent } from './home-content/home-content.component';
 
 import { CommentsComponent } from './comments/comments.component';
 import { ListImgUserComponent } from './list-img-user/list-img-user.component';
+import { UpdateImgComponent } from './update-img/update-img.component';
 
 
 const appRoutes: Routes = [
@@ -38,6 +39,7 @@ const appRoutes: Routes = [
   {path: 'content', component: ContentComponent},
   {path: 'detailimg/:id', component: DetailImgComponent},
   {path: 'listuser', component: ListImgUserComponent},
+  {path: 'update/:id', component: UpdateImgComponent},
 
 
 ];
@@ -60,6 +62,7 @@ const appRoutes: Routes = [
     HomeContentComponent,
     CommentsComponent,
     ListImgUserComponent,
+    UpdateImgComponent,
 
 
   ],
